@@ -58,3 +58,16 @@
   height: 60px;
   background-color: #000;
 }
+
+.navbar-nav .nav-item a {
+  color: #f2c811 !important;
+}
+
+.navbar-nav .nav-item .search-button {
+  padding: 2px 7px 0 0;
+  font-size: 15px;
+}
+
+.navbar-nav .nav-item .nc-icon {
+  top: 2px !important;
+}
