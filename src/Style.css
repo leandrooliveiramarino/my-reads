@@ -75,3 +75,43 @@
 .navbar-nav .nav-item .nc-icon {
   top: 2px !important;
 }
+
+/* Mainpanel */
+.main-panel {
+  background-color: #fff;
+}
+
+/* Card */
+.card {
+  box-shadow: none;
+}
+
+/* Book */
+.book {
+  width: 128px;
+}
+
+.book__description {
+  width: 115px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+  margin: auto;
+  font-size: 10px;
+  height: 50px;
+  padding: 10px 5px 5px 10px;
+  font-weight: bold;
+}
+
+.book__share {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  background-color: #fff;
+  margin: -25px 0 0 49px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
