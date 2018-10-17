@@ -86,9 +86,20 @@
   box-shadow: none;
 }
 
+.card .card-header {
+  margin: 0 0 10px 0;
+}
+
 /* Book */
+.book-list {
+  display: inline-table;
+  margin: auto;
+}
+
 .book {
   width: 128px;
+  display: inline-table;
+  margin: 30px;
 }
 
 .book__description {
@@ -111,7 +122,25 @@
   position: absolute;
   text-align: center;
   background-color: #fff;
+  margin: -22px 0 0 49px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book__set {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  background-color: #fff;
   margin: -25px 0 0 49px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.book__option:hover {
+  background-color: #f8f8f8;
 }
