@@ -1,3 +1,7 @@
+* {
+  font-family: 'Krub', sans-serif;
+}
+
 /* Sidebar */
 .sidebar-wrapper {
   overflow: hidden !important;
