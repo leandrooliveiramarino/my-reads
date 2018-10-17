@@ -115,6 +115,48 @@
   font-weight: bold;
 }
 
+.book__options {
+  position: absolute;
+  width: 128px;
+  height: 169px;
+  background-color: #f2c811;
+  border: 1px solid #ccc;
+  display: block;
+}
+
+.book__options .book__status-option {
+  height: 20px;
+  margin: 5px 0 0 0;
+}
+
+.book__options .book__form {
+  margin: 55px 0 0 10px;
+}
+
+.book__form .book__status-option .book__value {
+  display: inline-block;
+}
+
+.book__form .book__status-option .book__status {
+  color: #000 !important;
+  padding: 0 0 0 5px;
+  margin: 0;
+  position: absolute;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.book__options .book__label {
+  position: absolute;
+  width: 100%;
+  margin: 20px 0 0 0;
+  font-weight: normal;
+}
+
+.book__options--active {
+  display: block;
+}
+
 .book__share {
   width: 30px;
   height: 30px;
@@ -126,6 +168,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 1;
 }
 
 .book__set {
