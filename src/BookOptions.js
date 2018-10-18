@@ -1,12 +1,8 @@
 import React from 'react';
 
 const BookOptions = (props) => {
-  const activeClass = props.show
-    ? 'book__options--active'
-    : '';
-
   return (
-    <div className={`book__options ${activeClass}`}>
+    <div className={`book__options ${props.show && 'book__options--active'}`}>
       <h6 className='text-center book__label'>Status</h6>
       <form className='book__form'>
         <div className='book__status-option'>

@@ -1,12 +1,8 @@
 import React from 'react';
 
 const BookShare = (props) => {
-  const activeClass = props.show
-    ? 'book__sharing--active'
-    : '';
-
   return (
-    <div className={`book__sharing ${activeClass}`}>
+    <div className={`book__sharing ${props.show && 'book__sharing--active'}`}>
       <h6 className='text-center book__label'>Share on</h6>
       <div className='book__social-medias'>
         <div className='social-media'>
