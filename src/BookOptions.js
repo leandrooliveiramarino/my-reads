@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BookOptions = (props) => (
-  <div className='book__options book__options--active'>
+  <div className='book__options'>
     <h6 className='text-center book__label'>Status</h6>
     <form className='book__form'>
       <div className='book__status-option'>

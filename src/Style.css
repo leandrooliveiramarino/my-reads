@@ -121,6 +121,10 @@
   height: 169px;
   background-color: #f2c811;
   border: 1px solid #ccc;
+  display: none;
+}
+
+.book__options--active {
   display: block;
 }
 
@@ -151,10 +155,6 @@
   width: 100%;
   margin: 20px 0 0 0;
   font-weight: normal;
-}
-
-.book__options--active {
-  display: block;
 }
 
 .book__share {
