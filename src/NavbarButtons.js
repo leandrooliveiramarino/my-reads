@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import LinkButton from './LinkButton';
 
-const NavbarNav = (props) => (
+const NavbarButtons = (props) => (
   <div className='collapse navbar-collapse justify-content-end' id='navigation'>
     <ul className='navbar-nav'>
       <li className='nav-item'>
@@ -20,4 +20,4 @@ const NavbarNav = (props) => (
   </div>
 );
 
-export default NavbarNav;
+export default NavbarButtons;

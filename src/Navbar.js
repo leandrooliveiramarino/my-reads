@@ -1,12 +1,12 @@
 import React from 'react';
-import NavbarNav from './NavbarNav';
+import NavbarButtons from './NavbarButtons';
 import NavbarWrapper from './NavbarWrapper';
 
 const Navbar = () => (
   <nav className='navbar navbar-expand-lg navbar-absolute fixed-top'>
     <div className='container-fluid'>
       <NavbarWrapper/>
-      <NavbarNav/>
+      <NavbarButtons/>
     </div>
   </nav>
 );
