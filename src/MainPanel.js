@@ -1,18 +1,15 @@
 import React from 'react';
+import Navbar from './Navbar';
+import Search from './Search';
+import { Route } from 'react-router-dom';
 import StatusCard from './StatusCard';
-import NavbarNav from './NavbarNav';
-import NavbarWrapper from './NavbarWrapper';
 
 const MainPanel = (props) => (
   <div className='main-panel'>
-    <nav className='navbar navbar-expand-lg navbar-absolute fixed-top'>
-      <div className='container-fluid'>
-        <NavbarWrapper/>
-        <NavbarNav/>
-      </div>
-    </nav>
+    <Navbar/>
     <div className='content'>
-      <StatusCard/>
+      <Route exact path='/' component={StatusCard}/>
+      <Route path='/search' component={Search} />
     </div>
   </div>
 )

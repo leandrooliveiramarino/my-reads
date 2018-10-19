@@ -1,16 +1,20 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import LinkButton from './LinkButton';
 
 const NavbarNav = (props) => (
   <div className='collapse navbar-collapse justify-content-end' id='navigation'>
     <ul className='navbar-nav'>
       <li className='nav-item'>
-        <a className='nav-link btn-rotate' href='/'>
-          <p className='search-button'>Search</p>
-          <i className='nc-icon nc-simple-add'></i>
-          <p>
-            <span className='d-lg-none d-md-block'>Add</span>
-          </p>
-        </a>
+        <Route
+          exact
+          path='/'
+          render={() => <LinkButton label='Search' link='/search'/>}
+        />
+        <Route
+          path='/search'
+          render={() => <LinkButton label='Back to Home' link='/'/>}
+        />
       </li>
     </ul>
   </div>
