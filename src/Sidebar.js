@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuItem from './MenuItem';
 
 const Sidebar = (props) => (
   <div className='sidebar' data-color='black' data-active-color='danger'>
@@ -13,26 +14,26 @@ const Sidebar = (props) => (
           <p className='filter__text'>Filter by</p>
         </div>
         <ul className='nav'>
-          <li className='menu-item active'>
-            <a href='./dashboard.html'>
-              <p>All</p>
-            </a>
-          </li>
-          <li className='menu-item'>
-            <a href='./dashboard.html'>
-              <p>Reading</p>
-            </a>
-          </li>
-          <li className='menu-item'>
-            <a href='./dashboard.html'>
-              <p>Want to read</p>
-            </a>
-          </li>
-          <li className='menu-item'>
-            <a href='./dashboard.html'>
-              <p>Read</p>
-            </a>
-          </li>
+          <MenuItem
+            title='All'
+            to='/'
+            active={true}
+          />
+          <MenuItem
+            title='Reading'
+            to='/reading'
+            active={false}
+          />
+          <MenuItem
+            title='Want to read'
+            to='/want-to-read'
+            active={false}
+          />
+          <MenuItem
+            title='Read'
+            to='/read'
+            active={false}
+          />
         </ul>
       </div>
     </div>

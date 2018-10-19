@@ -1,6 +1,5 @@
 import React from 'react';
 import Book from './Book';
-import { Route } from 'react-router-dom';
 
 const StatusCard = (props) => (
   <div className='card card-nav-tabs'>
