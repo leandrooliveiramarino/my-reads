@@ -1,43 +1,18 @@
 import React from 'react';
-import MenuItem from './MenuItem';
+import Filter from './Filter';
+import { Link } from 'react-router-dom';
 
-const Sidebar = (props) => (
+const Sidebar = () => (
   <div className='sidebar' data-color='black' data-active-color='danger'>
     <div className='logo text-center'>
-      <a href='http://www.creative-tim.com' className='simple-text'>
+      <Link to='/' className='simple-text'>
         My Reads
-      </a>
+      </Link>
     </div>
     <div className='sidebar-wrapper'>
-      <div className='filter'>
-        <div className='text-center'>
-          <p className='filter__text'>Filter by</p>
-        </div>
-        <ul className='nav'>
-          <MenuItem
-            title='All'
-            to='/'
-            active={true}
-          />
-          <MenuItem
-            title='Reading'
-            to='/reading'
-            active={false}
-          />
-          <MenuItem
-            title='Want to read'
-            to='/want-to-read'
-            active={false}
-          />
-          <MenuItem
-            title='Read'
-            to='/read'
-            active={false}
-          />
-        </ul>
-      </div>
+      <Filter/>
     </div>
   </div>
-)
+);
 
 export default Sidebar;
