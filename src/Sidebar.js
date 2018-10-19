@@ -2,7 +2,7 @@ import React from 'react';
 import Filter from './Filter';
 import { Link } from 'react-router-dom';
 
-const Sidebar = () => (
+const Sidebar = (props) => (
   <div className='sidebar' data-color='black' data-active-color='danger'>
     <div className='logo text-center'>
       <Link to='/' className='simple-text'>
@@ -10,7 +10,8 @@ const Sidebar = () => (
       </Link>
     </div>
     <div className='sidebar-wrapper'>
-      <Filter/>
+      {/* Apenas irá apresentar o filter se estiver fora da página /search */}
+      {props.location.pathname !== '/search' && <Filter/>}
     </div>
   </div>
 );
