@@ -49,6 +49,7 @@
 .sidebar .logo {
   background-color: #000;
   color: #f2c811;
+  height: 66px;
 }
 
 .sidebar .logo .simple-text {
@@ -59,12 +60,25 @@
 
 /* Navbar */
 .navbar {
-  height: 60px;
-  background-color: #000;
+  min-height: 60px;
+  background-color: #000 !important;
 }
 
-.navbar-nav .nav-item a {
+.navbar.navbar-transparent {
+  background-color: #000 !important;
+}
+
+.navbar .navbar-collapse {
+  background-color: #000 !important;
+}
+
+.navbar-fixed-color {
+  background-color: #000 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
   color: #f2c811 !important;
+  text-align: center;
 }
 
 .navbar-nav .nav-item .button {
@@ -234,7 +248,7 @@
 /* Developed By */
 .developed-by {
   width: 100%;
-  bottom: 0;
+  bottom: 15px;
   position: absolute;
   color: #fff;
 }
