@@ -1,5 +1,6 @@
 import React from 'react';
 import Filter from './Filter';
+import DevelopedBy from './DevelopedBy';
 import { Link } from 'react-router-dom';
 
 const Sidebar = (props) => (
@@ -12,6 +13,7 @@ const Sidebar = (props) => (
     <div className='sidebar-wrapper'>
       {/* Apenas irá apresentar o filter se estiver fora da página /search */}
       {props.location.pathname !== '/search' && <Filter/>}
+      <DevelopedBy/>
     </div>
   </div>
 );

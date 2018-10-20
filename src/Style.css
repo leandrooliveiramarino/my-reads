@@ -230,3 +230,27 @@
   margin: 0;
   padding: 5px;
 }
+
+/* Developed By */
+.developed-by {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  color: #fff;
+}
+
+.developed-by .developed-by__text {
+  line-height: 0.2;
+  bottom: 0;
+}
+
+.developed-by .social-medias {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.developed-by .social-medias__icon {
+  margin: 3px;
+}
