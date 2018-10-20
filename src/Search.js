@@ -1,7 +1,12 @@
 import React from 'react';
+import SearchBar from './SearchBar';
+import SearchResult from './SearchResult';
 
 const Search = () => (
-  <div>search</div>
+  <React.Fragment>
+    <SearchBar/>
+    <SearchResult/>
+  </React.Fragment>
 );
 
 export default Search;

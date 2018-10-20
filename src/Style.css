@@ -145,6 +145,7 @@
 .book__options .book__status-option {
   height: 20px;
   margin: 5px 0 0 0;
+  text-align: left;
 }
 
 .book__options .book__form {
@@ -231,6 +232,7 @@
 .book__sharing .book__social-medias .social-media {
   color: #fff;
   cursor: pointer;
+  text-align: left;
 }
 
 .social-media__icon,
@@ -267,4 +269,9 @@
 
 .developed-by .social-medias__icon {
   margin: 3px;
+}
+
+/* Search result */
+.search-result {
+  margin: 20px 0 0 0;
 }
