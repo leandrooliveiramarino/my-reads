@@ -3,7 +3,8 @@ import Navbar from './Navbar';
 import { Route } from 'react-router-dom';
 import Shelves from './Shelves';
 import Search from './Search';
-import { search } from './BooksAPI';
+import { search, getAll } from './BooksAPI';
+import { setBooksOnShelves } from './Helper';
 
 class MainPanel extends Component {
 
@@ -12,6 +13,19 @@ class MainPanel extends Component {
     wantToRead: [],
     read: [],
     booksFound: []
+  }
+
+  componentDidMount() {
+    this.myBooks().then((books) => {
+      this.setState(prevState => ({
+        ...this.state,
+        ...setBooksOnShelves(books)
+      }))
+    })
+  }
+
+  myBooks() {
+    return getAll();
   }
 
   render() {

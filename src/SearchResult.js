@@ -10,7 +10,7 @@ class SearchResult extends Component {
           ? this.props.booksFound.map(book =>
               <Book
                 key={book.id}
-                thumbnail={book.imageLinks ? book.imageLinks.thumbnail : ''}
+                thumbnail={book.imageLinks && book.imageLinks.thumbnail}
                 title={book.title}
               />
             )

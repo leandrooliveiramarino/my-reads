@@ -29,6 +29,8 @@ class Book extends Component {
           <img
             src={this.props.thumbnail}
             alt={this.props.title}
+            height='169'
+            width='128'
           />
           <div
             className='book__set book__option'
