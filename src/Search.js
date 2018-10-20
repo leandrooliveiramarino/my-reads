@@ -2,10 +2,14 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 
-const Search = () => (
+const Search = (props) => (
   <React.Fragment>
-    <SearchBar/>
-    <SearchResult/>
+    <SearchBar
+      handleOnSearch={props.handleOnSearch}
+    />
+    <SearchResult
+      booksFound={props.booksFound}
+    />
   </React.Fragment>
 );
 

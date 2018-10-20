@@ -27,8 +27,8 @@ class Book extends Component {
           <BookShare show={this.state.showBookShare}/>
           <BookOptions show={this.state.showBookOptions}/>
           <img
-            src='http://books.google.com/books/content?id=mDzDBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
-            alt='Eloquent JavaScript, 2nd Ed.'
+            src={this.props.thumbnail}
+            alt={this.props.title}
           />
           <div
             className='book__set book__option'
@@ -39,7 +39,7 @@ class Book extends Component {
           </div>
         </div>
         <div className='book__description'>
-        Eloquent JavaScript, 2nd Ed.
+          {this.props.title}
         </div>
       </div>
     );
