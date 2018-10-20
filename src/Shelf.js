@@ -7,7 +7,13 @@ const Shelf = (props) => (
       <h5>{props.title}</h5>
     </div>
     <div className='card-body book-list'>
-      <Book/>
+      {props.books.map(book =>
+        <Book
+          key={book.id}
+          thumbnail={book.imageLinks && book.imageLinks.thumbnail}
+          title={book.title}
+        />
+      )}
     </div>
     {props.showHr && <hr/>}
   </div>

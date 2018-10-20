@@ -33,7 +33,13 @@ class MainPanel extends Component {
       <div className='main-panel'>
         <Navbar/>
         <div className='content'>
-          <Route path='/' component={Shelves} />
+          <Route path='/' render={() => (
+            <Shelves
+              currentlyReading={this.state.currentlyReading}
+              wantToRead={this.state.wantToRead}
+              read={this.state.read}
+            />
+          )} />
           <Route path='/search' render={() => (
             <Search
               handleOnSearch={this.handleOnSearch}
