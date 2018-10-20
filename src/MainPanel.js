@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import { Route } from 'react-router-dom';
-import StatusCards from './StatusCards';
+import Shelves from './Shelves';
 import Search from './Search';
 import { search } from './BooksAPI';
 
@@ -19,7 +19,7 @@ class MainPanel extends Component {
       <div className='main-panel'>
         <Navbar/>
         <div className='content'>
-          <Route path='/' component={StatusCards} />
+          <Route path='/' component={Shelves} />
           <Route path='/search' render={() => (
             <Search
               handleOnSearch={this.handleOnSearch}

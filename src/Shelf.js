@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-const StatusCard = (props) => (
+const Shelf = (props) => (
   <div className='card card-nav-tabs'>
     <div className='card-header card-header-primary'>
       <h5>{props.title}</h5>
@@ -13,4 +13,4 @@ const StatusCard = (props) => (
   </div>
 );
 
-export default StatusCard;
+export default Shelf;
