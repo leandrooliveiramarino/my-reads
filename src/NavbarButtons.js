@@ -14,9 +14,9 @@ const NavbarButtons = (props) => (
       <ul className='navbar-nav'>
         <li className='nav-item'>
         {
-          document.location.pathname === '/'
-            ? <LinkButton label='Search' link='/search' icon='nc-simple-add'/>
-            : <LinkButton label='Back to Home' link='/' icon='nc-minimal-left'/>
+          props.location.pathname === '/search'
+            ? <LinkButton label='Back to Home' link='/' icon='nc-minimal-left'/>
+            : <LinkButton label='Search' link='/search' icon='nc-simple-add'/>
         }
         </li>
       </ul>
