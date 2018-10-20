@@ -3,7 +3,7 @@ import React from 'react';
 const DevelopedBy = () => (
   <div className='developed-by'>
     <p className='developed-by__text text-center'>
-      Desenvolvido por
+      Developed by
     </p>
     <p className='developed-by__text text-center'>
       Leandro Oliveira Marino
