@@ -10,8 +10,11 @@ const Shelf = (props) => (
       {props.books.map(book =>
         <Book
           key={book.id}
+          bookId={book.id}
           thumbnail={book.imageLinks && book.imageLinks.thumbnail}
           title={book.title}
+          status={props.status}
+          onChangeBookChoice={props.onChangeBookChoice}
         />
       )}
     </div>

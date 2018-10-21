@@ -10,27 +10,30 @@ const Shelves = (props) => (
           props.currentlyReading &&
             <Shelf
               title='Currently reading'
-              stateName='currentlyReading'
+              status='currentlyReading'
               showHr={true}
               books={props.currentlyReading}
+              onChangeBookChoice={props.onChangeBookChoice}
             />
         }
         {
           props.wantToRead &&
             <Shelf
               title='Want to Read'
-              stateName='wantToRead'
+              status='wantToRead'
               showHr={true}
               books={props.wantToRead}
+              onChangeBookChoice={props.onChangeBookChoice}
             />
         }
         {
           props.read &&
             <Shelf
               title='Read'
-              stateName='read'
+              status='read'
               showHr={false}
               books={props.read}
+              onChangeBookChoice={props.onChangeBookChoice}
             />
         }
       </React.Fragment>
@@ -39,27 +42,30 @@ const Shelves = (props) => (
     <Route path='/currently-reading' render={() => (
       <Shelf
         title='Currently reading'
-        stateName='currentlyReading'
+        status='currentlyReading'
         showHr={false}
         books={props.currentlyReading}
+        onChangeBookChoice={props.onChangeBookChoice}
       />
     )}/>
 
     <Route path='/want-to-read' render={() => (
       <Shelf
         title='Want to read'
-        stateName='wantToRead'
+        status='wantToRead'
         showHr={false}
         books={props.wantToRead}
+        onChangeBookChoice={props.onChangeBookChoice}
       />
     )}/>
 
     <Route path='/read' render={() => (
       <Shelf
         title='Read'
-        stateName='read'
+        status='read'
         showHr={false}
         books={props.read}
+        onChangeBookChoice={props.onChangeBookChoice}
       />
     )}/>
 

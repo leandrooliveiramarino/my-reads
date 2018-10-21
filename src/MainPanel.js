@@ -12,43 +12,50 @@ class MainPanel extends Component {
     currentlyReading: [],
     wantToRead: [],
     read: [],
-    booksFound: []
+    booksFound: [],
+    myBooks: []
   }
 
   componentDidMount() {
-    this.myBooks().then((books) => {
-      this.setState(prevState => ({
-        ...this.state,
-        ...setBooksOnShelves(books)
-      }))
-    })
+    this.setState(prevState => ({
+      ...this.state,
+      myBooks: this.myBooks(),
+      ...setBooksOnShelves(this.myBooks())
+    }))
   }
 
-  myBooks() {
-    return getAll();
+  myBooks = () => {
+    if(!localStorage.isInitialized) {
+      localStorage.isInitialized = true;
+      return getAll().then((books) => {
+        localStorage.myBooks = JSON.stringify(books);
+        return books;
+      })
+    }
+
+    return JSON.parse(localStorage.myBooks);
   }
 
-  render() {
-    return (
-      <div className='main-panel'>
-        <Navbar/>
-        <div className='content'>
-          <Route path='/' render={() => (
-            <Shelves
-              currentlyReading={this.state.currentlyReading}
-              wantToRead={this.state.wantToRead}
-              read={this.state.read}
-            />
-          )} />
-          <Route path='/search' render={() => (
-            <Search
-              handleOnSearch={this.handleOnSearch}
-              booksFound={this.state.booksFound}
-            />
-          )} />
-        </div>
-      </div>
-    )
+  onChangeBookChoice = (ev, bookId) => {
+    const choice = ev.target.value;
+
+    const myBooks = this.state.myBooks.map((book) => {
+      if(book.id === bookId) {
+        book.shelf = choice;
+        return book;
+      }
+      return book;
+    });
+
+    console.log(myBooks);
+
+    localStorage.myBooks = JSON.stringify(myBooks);
+
+    this.setState((prevState) => ({
+      ...prevState,
+      myBooks,
+      ...setBooksOnShelves(myBooks)
+    }));
   }
 
   handleOnSearch = (ev) => {
@@ -63,7 +70,30 @@ class MainPanel extends Component {
     }), (err) => {
       console.error(err);
     });
+  }
 
+  render() {
+    return (
+      <div className='main-panel'>
+        <Navbar/>
+        <div className='content'>
+          <Route path='/' render={() => (
+            <Shelves
+              currentlyReading={this.state.currentlyReading}
+              wantToRead={this.state.wantToRead}
+              read={this.state.read}
+              onChangeBookChoice={this.onChangeBookChoice}
+            />
+          )} />
+          <Route path='/search' render={() => (
+            <Search
+              handleOnSearch={this.handleOnSearch}
+              booksFound={this.state.booksFound}
+            />
+          )} />
+        </div>
+      </div>
+    )
   }
 }
 

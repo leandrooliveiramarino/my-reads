@@ -10,12 +10,15 @@ const BookOptions = (props) => {
             className='book__value'
             type='radio'
             name='bookStatus'
-            id='currentlyReading'
+            id={`currentlyReading-${props.bookId}`}
             value='currentlyReading'
+            disabled={props.status === 'currentlyReading'}
+            checked={props.status === 'currentlyReading'}
+            onChange={(ev) => props.onChangeBookChoice(ev, props.bookId)}
           />
           <label
             className='book__status'
-            htmlFor='currentlyReading'>
+            htmlFor={`currentlyReading-${props.bookId}`}>
               Currently reading
           </label>
         </div>
@@ -24,12 +27,15 @@ const BookOptions = (props) => {
             className='book__value'
             type='radio'
             name='bookStatus'
-            id='wantToRead'
+            id={`wantToRead-${props.bookId}`}
             value='wantToRead'
+            disabled={props.status === 'wantToRead'}
+            checked={props.status === 'wantToRead'}
+            onChange={(ev) => props.onChangeBookChoice(ev, props.bookId)}
           />
           <label
             className='book__status'
-            htmlFor='wantToRead'>
+            htmlFor={`wantToRead-${props.bookId}`}>
               Want to read
           </label>
         </div>
@@ -38,12 +44,15 @@ const BookOptions = (props) => {
             className='book__value'
             type='radio'
             name='bookStatus'
-            id='read'
+            id={`read-${props.bookId}`}
             value='read'
+            disabled={props.status === 'read'}
+            checked={props.status === 'read'}
+            onChange={(ev) => props.onChangeBookChoice(ev, props.bookId)}
           />
           <label
             className='book__status'
-            htmlFor='read'>
+            htmlFor={`read-${props.bookId}`}>
               Read
           </label>
         </div>

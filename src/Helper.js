@@ -1,5 +1,6 @@
 export const setBooksOnShelves = (books) => {
-  return books.reduce((carry, book) => {
+
+  const treatedBooks = books.reduce((carry, book) => {
     if(!carry) {
       return {
         [book.shelf]: [book]
@@ -14,4 +15,14 @@ export const setBooksOnShelves = (books) => {
     carry[book.shelf].push(book);
     return carry;
   }, 0);
+
+  /*
+    Garantindo que o retorno do objeto possua os três atributos (currentlyReading, wantToRead e read), vazios ou não
+   */
+  return {
+    currentlyReading: [],
+    wantToRead: [],
+    read: [],
+    ...treatedBooks
+  };
 }

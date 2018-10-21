@@ -25,7 +25,7 @@ class Book extends Component {
             <i className="nc-icon nc-share-66"></i>
           </div>
           <BookShare show={this.state.showBookShare}/>
-          <BookOptions show={this.state.showBookOptions}/>
+          <BookOptions show={this.state.showBookOptions} status={this.props.status} onChangeBookChoice={this.props.onChangeBookChoice} bookId={this.props.bookId}/>
           <img
             src={this.props.thumbnail}
             alt={this.props.title}
