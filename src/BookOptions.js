@@ -79,6 +79,32 @@ class BookOptions extends Component {
                 Read
             </label>
           </div>
+          {
+            /*
+              A opção de remover deve estar visível apenas se estivermos em um caminho diferente de /search
+             */
+            this.props.location.pathname !== '/search' && (
+              <div className='book__status-option'>
+                <input
+                  className='book__value'
+                  type='radio'
+                  name='bookStatus'
+                  id={`remove-${this.props.book.id}`}
+                  value='remove'
+                  checked={checkedOption === 'remove'}
+                  onChange={ev => {
+                    this.props.onChangeBookChoice(ev, this.props.book);
+                    this.handleBookChoice(ev);
+                  }}
+                />
+                <label
+                  className='book__status'
+                  htmlFor={`remove-${this.props.book.id}`}>
+                    Remove
+                </label>
+              </div>
+            )
+          }
         </form>
       </div>
     )

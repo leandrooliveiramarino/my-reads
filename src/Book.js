@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import BookOptions from './BookOptions';
 import BookShare from './BookShare';
 
@@ -25,12 +26,15 @@ class Book extends Component {
             <i className="nc-icon nc-share-66"></i>
           </div>
           <BookShare show={this.state.showBookShare}/>
-          <BookOptions
-            show={this.state.showBookOptions}
-            status={this.props.status}
-            onChangeBookChoice={this.props.onChangeBookChoice}
-            book={this.props.book}
-          />
+          <Route render={(props) => (
+            <BookOptions
+              show={this.state.showBookOptions}
+              status={this.props.status}
+              onChangeBookChoice={this.props.onChangeBookChoice}
+              book={this.props.book}
+              {...props}
+            />
+          )}/>
           <img
             src={this.props.thumbnail}
             alt={this.props.title}
