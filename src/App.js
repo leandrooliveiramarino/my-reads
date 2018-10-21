@@ -7,7 +7,7 @@ import './Style.css';
 const App = () => (
     <div className='wrapper'>
       <Route path='/' component={Sidebar}/>
-      <MainPanel/>
+      <Route path='/' render={(props) => <MainPanel {...props}/>}/>
     </div>
 )
 

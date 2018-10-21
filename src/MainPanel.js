@@ -40,25 +40,44 @@ class MainPanel extends Component {
 
   onChangeBookChoice = (ev, book) => {
     const choice = ev.target.value;
+    let treatedBooks;
 
+    if(choice === 'remove') {
+      treatedBooks = this.removeBookFromShelves(book);
+    } else {
+      treatedBooks = this.changeOrAddBookOnShelf(choice, book);
+    }
+
+    localStorage.myBooks = JSON.stringify(treatedBooks);
+
+    this.setState((prevState) => ({
+      ...prevState,
+      myBooks: treatedBooks,
+      booksFound: [],
+      isSearching: false,
+      ...setBooksOnShelves(treatedBooks)
+    }));
+
+    if(this.props.location.pathname === '/search') {
+      this.props.history.push('/');
+    }
+  }
+
+  removeBookFromShelves = (book) => {
+    return this.state.myBooks.filter(currentBook => currentBook.id !== book.id);
+  }
+
+  changeOrAddBookOnShelf = (choice, book) => {
     const isBookMine = this.state.myBooks.find(currentBook => currentBook.id === book.id);
     const myBooks = !isBookMine ? this.state.myBooks.concat(book) : this.state.myBooks;
 
-    const treatedBooks = myBooks.map((currentBook) => {
+    return myBooks.map((currentBook) => {
       if(currentBook.id === book.id) {
         currentBook.shelf = choice;
         return currentBook;
       }
       return currentBook;
     });
-
-    localStorage.myBooks = JSON.stringify(treatedBooks);
-
-    this.setState((prevState) => ({
-      ...prevState,
-      treatedBooks,
-      ...setBooksOnShelves(treatedBooks)
-    }));
   }
 
   handleOnSearch = (ev) => {
