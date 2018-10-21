@@ -19,14 +19,20 @@ class Book extends Component {
     return (
       <div className='book' title={this.props.title}>
         <div className='book__image'>
-          <div
-            className='book__share book__option'
-            onClick={(e) => {
-              return this.toggleBookChoice(e, 'showBookShare');
-            }}>
-            <i className="nc-icon nc-share-66"></i>
-          </div>
-          <BookShare show={this.state.showBookShare}/>
+          <Route render={(props) => (
+            <div
+              className={`book__share book__option ${props.location.pathname === '/search' && 'hidden'}`}
+              onClick={(e) => {
+                return this.toggleBookChoice(e, 'showBookShare');
+              }}>
+              <i className="nc-icon nc-share-66"></i>
+            </div>
+          )}/>
+          <BookShare
+            show={this.state.showBookShare}
+            bookName={this.props.title}
+            status={this.props.status}
+          />
           <Route render={(props) => (
             <BookOptions
               show={this.state.showBookOptions}

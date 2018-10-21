@@ -1,5 +1,10 @@
+/* General */
 * {
   font-family: 'Krub', sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Sidebar */
@@ -233,6 +238,11 @@
   color: #fff;
   cursor: pointer;
   text-align: left;
+}
+
+.book__social-medias .social-media {
+  background-color: transparent;
+  border: 0;
 }
 
 .social-media__icon,
