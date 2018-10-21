@@ -7,13 +7,24 @@ class SearchResult extends Component {
       <div className='row justify-content-md-center search-result'>
         <div className='col-sm-12 text-center'>
           {
-            this.props.booksFound.map(book =>
-              <Book
-                key={book.id}
-                thumbnail={book.imageLinks && book.imageLinks.thumbnail}
-                title={book.title}
-              />
-            )
+            this.props.booksFound.map(book => {
+              /*
+                Verificando se o livro já está na prateleira e inserindo o devidamente inserindo o status
+               */
+              const bookOnTheShelf = this.props.myBooks.find((currentBook) => currentBook.id === book.id);
+              const status = bookOnTheShelf && bookOnTheShelf.shelf;
+
+              return (
+                <Book
+                  key={book.id}
+                  book={book}
+                  thumbnail={book.imageLinks && book.imageLinks.thumbnail}
+                  title={book.title}
+                  status={status}
+                  onChangeBookChoice={this.props.onChangeBookChoice}
+                />
+              )
+            })
           }
           {
             this.props.isSearching && !this.props.booksFound.length && <p><b>No books found</b></p>

@@ -17,18 +17,19 @@ class MainPanel extends Component {
     isSearching: false
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const myBooks = await this.myBooks();
     this.setState(prevState => ({
       ...this.state,
-      myBooks: this.myBooks(),
-      ...setBooksOnShelves(this.myBooks())
+      myBooks,
+      ...setBooksOnShelves(myBooks)
     }))
   }
 
   myBooks = () => {
-    if(!localStorage.isInitialized) {
-      localStorage.isInitialized = true;
+    if(JSON.parse(!localStorage.isInitialized)) {
       return getAll().then((books) => {
+        localStorage.isInitialized = true;
         localStorage.myBooks = JSON.stringify(books);
         return books;
       })
@@ -37,23 +38,26 @@ class MainPanel extends Component {
     return JSON.parse(localStorage.myBooks);
   }
 
-  onChangeBookChoice = (ev, bookId) => {
+  onChangeBookChoice = (ev, book) => {
     const choice = ev.target.value;
 
-    const myBooks = this.state.myBooks.map((book) => {
-      if(book.id === bookId) {
-        book.shelf = choice;
-        return book;
+    const isBookMine = this.state.myBooks.find(currentBook => currentBook.id === book.id);
+    const myBooks = !isBookMine ? this.state.myBooks.concat(book) : this.state.myBooks;
+
+    const treatedBooks = myBooks.map((currentBook) => {
+      if(currentBook.id === book.id) {
+        currentBook.shelf = choice;
+        return currentBook;
       }
-      return book;
+      return currentBook;
     });
 
-    localStorage.myBooks = JSON.stringify(myBooks);
+    localStorage.myBooks = JSON.stringify(treatedBooks);
 
     this.setState((prevState) => ({
       ...prevState,
-      myBooks,
-      ...setBooksOnShelves(myBooks)
+      treatedBooks,
+      ...setBooksOnShelves(treatedBooks)
     }));
   }
 
@@ -103,6 +107,8 @@ class MainPanel extends Component {
               handleOnSearch={this.handleOnSearch}
               booksFound={this.state.booksFound}
               isSearching={this.state.isSearching}
+              onChangeBookChoice={this.onChangeBookChoice}
+              myBooks={this.state.myBooks}
             />
           )} />
         </div>

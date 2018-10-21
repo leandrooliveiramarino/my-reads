@@ -10,6 +10,8 @@ const Search = (props) => (
     <SearchResult
       booksFound={props.booksFound}
       isSearching={props.isSearching}
+      onChangeBookChoice={props.onChangeBookChoice}
+      myBooks={props.myBooks}
     />
   </React.Fragment>
 );

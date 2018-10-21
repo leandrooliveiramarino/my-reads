@@ -29,7 +29,7 @@ class Book extends Component {
             show={this.state.showBookOptions}
             status={this.props.status}
             onChangeBookChoice={this.props.onChangeBookChoice}
-            bookId={this.props.bookId}
+            book={this.props.book}
           />
           <img
             src={this.props.thumbnail}

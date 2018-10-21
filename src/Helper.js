@@ -1,5 +1,4 @@
 export const setBooksOnShelves = (books) => {
-
   const treatedBooks = books.reduce((carry, book) => {
     if(!carry) {
       return {
