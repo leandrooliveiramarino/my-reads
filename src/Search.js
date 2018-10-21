@@ -9,6 +9,7 @@ const Search = (props) => (
     />
     <SearchResult
       booksFound={props.booksFound}
+      isSearching={props.isSearching}
     />
   </React.Fragment>
 );

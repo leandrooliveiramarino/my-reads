@@ -275,3 +275,8 @@
 .search-result {
   margin: 20px 0 0 0;
 }
+
+.search-result .search-result__available-search-terms {
+  padding: 30px;
+  display: inline-block;
+}

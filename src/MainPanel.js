@@ -13,7 +13,8 @@ class MainPanel extends Component {
     wantToRead: [],
     read: [],
     booksFound: [],
-    myBooks: []
+    myBooks: [],
+    isSearching: false
   }
 
   componentDidMount() {
@@ -47,8 +48,6 @@ class MainPanel extends Component {
       return book;
     });
 
-    console.log(myBooks);
-
     localStorage.myBooks = JSON.stringify(myBooks);
 
     this.setState((prevState) => ({
@@ -59,16 +58,30 @@ class MainPanel extends Component {
   }
 
   handleOnSearch = (ev) => {
+    const query = ev.target.value.trim();
+
     //API lança um erro se a busca for feita com string vazia, por isso a tratativa abaixo
-    const query = ev.target.value.trim() || ' ';
+    if(!query) {
+      this.setState((prevState) => ({
+        ...this.prevState,
+        isSearching: false,
+        booksFound: []
+      }))
+      return;
+    }
 
     search(query).then((booksFound => {
       this.setState((prevState) => ({
-        ...this.state,
-        booksFound
+        ...this.prevState,
+        booksFound: booksFound.length ? booksFound : [],
+        isSearching: true
       }))
     }), (err) => {
-      console.error(err);
+      this.setState((prevState) => ({
+        ...this.prevState,
+        booksFound: [],
+        isSearching: true
+      }))
     });
   }
 
@@ -89,6 +102,7 @@ class MainPanel extends Component {
             <Search
               handleOnSearch={this.handleOnSearch}
               booksFound={this.state.booksFound}
+              isSearching={this.state.isSearching}
             />
           )} />
         </div>

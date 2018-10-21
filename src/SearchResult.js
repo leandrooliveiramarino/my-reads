@@ -6,15 +6,27 @@ class SearchResult extends Component {
     return (
       <div className='row justify-content-md-center search-result'>
         <div className='col-sm-12 text-center'>
-        {this.props.booksFound.length
-          ? this.props.booksFound.map(book =>
+          {
+            this.props.booksFound.map(book =>
               <Book
                 key={book.id}
                 thumbnail={book.imageLinks && book.imageLinks.thumbnail}
                 title={book.title}
               />
             )
-          : <p>No books found</p>}
+          }
+          {
+            this.props.isSearching && !this.props.booksFound.length && <p><b>No books found</b></p>
+          }
+          {
+            !this.props.booksFound.length &&
+              <div className='search-result__available-search-terms'>
+                <p>
+                  <b>Available search terms: </b>
+                  'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+                </p>
+              </div>
+          }
         </div>
       </div>
     )
