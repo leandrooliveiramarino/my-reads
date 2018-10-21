@@ -17,6 +17,7 @@ const Shelf = (props) => (
           onChangeBookChoice={props.onChangeBookChoice}
         />
       )}
+      {!props.books.length && <p>There are no books here</p>}
     </div>
     {props.showHr && <hr/>}
   </div>
