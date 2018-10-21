@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import BookOptions from './BookOptions';
 import BookShare from './BookShare';
+import { limitCharacters } from './Helper';
 
 class Book extends Component {
 
@@ -16,7 +17,7 @@ class Book extends Component {
 
   render() {
     return (
-      <div className='book'>
+      <div className='book' title={this.props.title}>
         <div className='book__image'>
           <div
             className='book__share book__option'
@@ -50,7 +51,7 @@ class Book extends Component {
           </div>
         </div>
         <div className='book__description'>
-          {this.props.title}
+          {limitCharacters(this.props.title)}
         </div>
       </div>
     );
