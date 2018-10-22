@@ -25,7 +25,6 @@ class Search extends Component {
     }
 
     search(query).then((booksFound => {
-      console.log(booksFound);
       this.setState(prevState => ({
         ...this.prevState,
         booksFound: booksFound.length ? booksFound : [],
