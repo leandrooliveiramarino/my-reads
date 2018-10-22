@@ -4,7 +4,7 @@ const SearchBar = (props) => {
     return (
       <div className='row justify-content-md-center'>
         <div className='col-sm-6'>
-          <div className='input-group'>
+          <div className='input-group input-group-focus'>
             <div className='input-group-prepend'>
               <div className='input-group-text'><i className='nc-icon nc-zoom-split'></i></div>
             </div>
@@ -13,9 +13,7 @@ const SearchBar = (props) => {
               className='form-control'
               placeholder='Search'
               value={props.query}
-              onChange={(ev) => {
-                props.handleOnSearch(ev);
-              }}
+              onChange={props.handleOnSearch}
               autoFocus
             />
           </div>
