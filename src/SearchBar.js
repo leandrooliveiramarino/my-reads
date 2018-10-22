@@ -1,12 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchBar extends Component {
-
-  state = {
-    query: ''
-  }
-
-  render() {
+const SearchBar = (props) => {
     return (
       <div className='row justify-content-md-center'>
         <div className='col-sm-6'>
@@ -18,22 +12,16 @@ class SearchBar extends Component {
               type='text'
               className='form-control'
               placeholder='Search'
-              value={this.state.query}
+              value={props.query}
               onChange={(ev) => {
-                this.props.handleOnSearch(ev);
-                this.onSearch(ev);
+                props.handleOnSearch(ev);
               }}
+              autoFocus
             />
           </div>
         </div>
       </div>
     );
-  }
-
-  onSearch = ev => {
-    const query = ev.target.value;
-    this.setState(prevState => ({query: query}))
-  };
 }
 
 export default SearchBar;

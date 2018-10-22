@@ -13,6 +13,8 @@ const DevelopedBy = () => (
         href='https://www.linkedin.com/in/leandromarino'
         alt='Leandro Oliveira Marino LinkedIn'
         className='social-medias__icon'
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <img
           src='/img/linkedin-icon.png'
@@ -25,6 +27,8 @@ const DevelopedBy = () => (
         href='https://github.com/leandrooliveiramarino'
         alt='Leandro Oliveira Marino GitHub'
         className='social-medias__icon'
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <img
           src='/img/github-icon.png'
@@ -37,6 +41,8 @@ const DevelopedBy = () => (
         href='https://www.facebook.com/leandro.o.marino'
         alt='Leandro Oliveira Marino Facebook'
         className='social-medias__icon'
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <img
           src='/img/facebook-icon.png'

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Route } from 'react-router-dom';
 import Shelves from './Shelves';
 import Search from './Search';
-import { search, getAll } from './BooksAPI';
+import { getAll } from './BooksAPI';
 import { setBooksOnShelves } from './Helper';
 
 class MainPanel extends Component {
@@ -14,7 +14,9 @@ class MainPanel extends Component {
     read: [],
     booksFound: [],
     myBooks: [],
-    isSearching: false
+    isSearching: false,
+    fetching: true,
+    query: ''
   }
 
   async componentDidMount() {
@@ -22,6 +24,7 @@ class MainPanel extends Component {
     this.setState(prevState => ({
       ...this.state,
       myBooks,
+      fetching: false,
       ...setBooksOnShelves(myBooks)
     }))
   }
@@ -80,57 +83,41 @@ class MainPanel extends Component {
     });
   }
 
-  handleOnSearch = (ev) => {
-    const query = ev.target.value.trim();
-
-    //API lança um erro se a busca for feita com string vazia, por isso a tratativa abaixo
-    if(!query) {
-      this.setState((prevState) => ({
-        ...this.prevState,
-        isSearching: false,
-        booksFound: []
-      }))
-      return;
-    }
-
-    search(query).then((booksFound => {
-      this.setState((prevState) => ({
-        ...this.prevState,
-        booksFound: booksFound.length ? booksFound : [],
-        isSearching: true
-      }))
-    }), (err) => {
-      this.setState((prevState) => ({
-        ...this.prevState,
-        booksFound: [],
-        isSearching: true
-      }))
-    });
-  }
-
   render() {
+    const content = <div className='content'>
+      <Route path='/' render={() => (
+        <Shelves
+          currentlyReading={this.state.currentlyReading}
+          wantToRead={this.state.wantToRead}
+          read={this.state.read}
+          onChangeBookChoice={this.onChangeBookChoice}
+        />
+      )} />
+      <Route path='/search' render={() => (
+        <Search
+          handleOnSearch={this.handleOnSearch}
+          booksFound={this.state.booksFound}
+          isSearching={this.state.isSearching}
+          onChangeBookChoice={this.onChangeBookChoice}
+          myBooks={this.state.myBooks}
+          onSearch={this.onSearch}
+        />
+      )} />
+    </div>;
+    const loading = <div className='content'>
+      <div className='loading'>
+        <img src='/img/loading.gif' alt='Loading' className='loading-icon'/>
+      </div>
+    </div>;
+
     return (
       <div className='main-panel'>
         <Navbar/>
-        <div className='content'>
-          <Route path='/' render={() => (
-            <Shelves
-              currentlyReading={this.state.currentlyReading}
-              wantToRead={this.state.wantToRead}
-              read={this.state.read}
-              onChangeBookChoice={this.onChangeBookChoice}
-            />
-          )} />
-          <Route path='/search' render={() => (
-            <Search
-              handleOnSearch={this.handleOnSearch}
-              booksFound={this.state.booksFound}
-              isSearching={this.state.isSearching}
-              onChangeBookChoice={this.onChangeBookChoice}
-              myBooks={this.state.myBooks}
-            />
-          )} />
-        </div>
+        {
+          this.state.fetching
+            ? loading
+            : content
+        }
       </div>
     )
   }

@@ -98,6 +98,7 @@
 /* Mainpanel */
 .main-panel {
   background-color: #fff;
+  height: 100%;
 }
 
 /* Card */
@@ -289,4 +290,16 @@
 .search-result .search-result__available-search-terms {
   padding: 30px;
   display: inline-block;
+}
+
+/* Content */
+.content .loading {
+  margin: 20% 0 0 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.content .loading .loading-icon {
+  margin: auto;
+  display: block;
 }
