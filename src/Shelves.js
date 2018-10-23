@@ -8,34 +8,31 @@ const Shelves = (props) => (
       <Route exact path='/' render={() => (
         <React.Fragment>
           {
-            props.currentlyReading &&
-              <Shelf
-                title='Currently reading'
-                status='currentlyReading'
-                showHr={true}
-                books={props.currentlyReading}
-                onChangeBookChoice={props.onChangeBookChoice}
-              />
+            <Shelf
+              title='Currently reading'
+              status='currentlyReading'
+              showHr={true}
+              books={props.currentlyReading}
+              onChangeBookChoice={props.onChangeBookChoice}
+            />
           }
           {
-            props.wantToRead &&
-              <Shelf
-                title='Want to Read'
-                status='wantToRead'
-                showHr={true}
-                books={props.wantToRead}
-                onChangeBookChoice={props.onChangeBookChoice}
-              />
+            <Shelf
+              title='Want to Read'
+              status='wantToRead'
+              showHr={true}
+              books={props.wantToRead}
+              onChangeBookChoice={props.onChangeBookChoice}
+            />
           }
           {
-            props.read &&
-              <Shelf
-                title='Read'
-                status='read'
-                showHr={false}
-                books={props.read}
-                onChangeBookChoice={props.onChangeBookChoice}
-              />
+            <Shelf
+              title='Read'
+              status='read'
+              showHr={false}
+              books={props.read}
+              onChangeBookChoice={props.onChangeBookChoice}
+            />
           }
         </React.Fragment>
       )}/>

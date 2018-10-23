@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
-import { search } from './BooksAPI';
+import * as BooksAPI from './BooksAPI';
 
 class Search extends Component {
 
@@ -13,7 +13,9 @@ class Search extends Component {
 
   handleOnSearch = ev => {
     const query = ev.target.value.trim();
-    //API lança um erro se a busca for feita com string vazia, por isso a tratativa abaixo
+    /*
+      Se query estiver vazio, não há necessidade de fazer um disparo na API
+     */
     if(!query) {
       this.setState(prevState => ({
         ...this.prevState,
@@ -24,7 +26,7 @@ class Search extends Component {
       return;
     }
 
-    search(query).then((booksFound => {
+    BooksAPI.search(query).then((booksFound => {
       this.setState(prevState => ({
         ...this.prevState,
         booksFound: booksFound.length ? booksFound : [],
@@ -52,6 +54,7 @@ class Search extends Component {
           isSearching={this.state.isSearching}
           onChangeBookChoice={this.props.onChangeBookChoice}
           myBooks={this.props.myBooks}
+          isBookRemovable={this.props.isBookRemovable}
         />
       </React.Fragment>
     )

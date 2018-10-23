@@ -124,6 +124,10 @@
   margin: 30px;
 }
 
+.book__image {
+  position: relative;
+}
+
 .book__description {
   width: 115px;
   text-align: center;
@@ -201,10 +205,15 @@
   position: absolute;
   text-align: center;
   background-color: #fff;
-  margin: -25px 0 0 49px;
+  margin: 20px 0 0 49px;
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  bottom: -5px;
+}
+
+.book__option {
+  z-index: 1;
 }
 
 .book__option:hover {
@@ -234,7 +243,7 @@
 }
 
 .book__sharing .book__social-medias {
-  margin: 70px 0 0 15px;
+  margin: 70px 0 0 0;
 }
 
 .book__sharing .book__social-medias .social-media {

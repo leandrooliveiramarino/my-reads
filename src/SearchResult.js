@@ -9,7 +9,7 @@ class SearchResult extends Component {
           {
             this.props.booksFound.map(book => {
               /*
-                Verificando se o livro já está na prateleira e inserindo o devidamente inserindo o status
+                Verificando se o livro já está na prateleira e inserindo devidamente seu status
                */
               const bookOnTheShelf = this.props.myBooks.find((currentBook) => currentBook.id === book.id);
               const status = bookOnTheShelf && bookOnTheShelf.shelf;
@@ -22,6 +22,8 @@ class SearchResult extends Component {
                   title={book.title}
                   status={status}
                   onChangeBookChoice={this.props.onChangeBookChoice}
+                  isBookRemovable={this.props.isBookRemovable}
+                  showBookShare={false}
                 />
               )
             })

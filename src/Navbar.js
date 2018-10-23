@@ -5,7 +5,10 @@ import NavbarButtons from './NavbarButtons';
 const Navbar = () => (
   <nav className='navbar navbar-expand-lg navbar-absolute fixed-top navbar-fixed-color'>
     <div className='container-fluid'>
-      <Route path='/' component={NavbarButtons} />
+      <Route
+        path='/'
+        component={NavbarButtons}
+      />
     </div>
   </nav>
 );

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Route } from 'react-router-dom';
 import Shelves from './Shelves';
 import Search from './Search';
-import { getAll } from './BooksAPI';
+import * as BooksAPI from './BooksAPI';
 import { setBooksOnShelves } from './Helper';
 
 class MainPanel extends Component {
@@ -12,11 +12,8 @@ class MainPanel extends Component {
     currentlyReading: [],
     wantToRead: [],
     read: [],
-    booksFound: [],
     myBooks: [],
-    isSearching: false,
-    fetching: true,
-    query: ''
+    fetching: true
   }
 
   async componentDidMount() {
@@ -30,8 +27,11 @@ class MainPanel extends Component {
   }
 
   myBooks = () => {
+    /*
+      Se não existe no localStorage, faz a chamada
+     */
     if(JSON.parse(!localStorage.isInitialized)) {
-      return getAll().then((books) => {
+      return BooksAPI.getAll().then((books) => {
         localStorage.isInitialized = true;
         localStorage.myBooks = JSON.stringify(books);
         return books;
@@ -46,7 +46,7 @@ class MainPanel extends Component {
     let treatedBooks;
 
     if(choice === 'remove') {
-      treatedBooks = this.removeBookFromShelves(book);
+      treatedBooks = this.removeBookFromShelf(book);
     } else {
       treatedBooks = this.changeOrAddBookOnShelf(choice, book);
     }
@@ -56,25 +56,19 @@ class MainPanel extends Component {
     this.setState((prevState) => ({
       ...prevState,
       myBooks: treatedBooks,
-      booksFound: [],
-      isSearching: false,
       ...setBooksOnShelves(treatedBooks)
     }));
-
-    if(this.props.location.pathname === '/search') {
-      this.props.history.push('/');
-    }
   }
 
-  removeBookFromShelves = (book) => {
+  removeBookFromShelf = (book) => {
     return this.state.myBooks.filter(currentBook => currentBook.id !== book.id);
   }
 
   changeOrAddBookOnShelf = (choice, book) => {
-    const isBookMine = this.state.myBooks.find(currentBook => currentBook.id === book.id);
-    const myBooks = !isBookMine ? this.state.myBooks.concat(book) : this.state.myBooks;
+    const isBookOnAnyShelf = this.state.myBooks.find(currentBook => currentBook.id === book.id);
+    const myBooks = !isBookOnAnyShelf ? this.state.myBooks.concat(book) : this.state.myBooks;
 
-    return myBooks.map((currentBook) => {
+    return myBooks.map(currentBook => {
       if(currentBook.id === book.id) {
         currentBook.shelf = choice;
         return currentBook;
@@ -95,12 +89,9 @@ class MainPanel extends Component {
       )} />
       <Route path='/search' render={() => (
         <Search
-          handleOnSearch={this.handleOnSearch}
-          booksFound={this.state.booksFound}
-          isSearching={this.state.isSearching}
           onChangeBookChoice={this.onChangeBookChoice}
           myBooks={this.state.myBooks}
-          onSearch={this.onSearch}
+          isBookRemovable={false}
         />
       )} />
     </div>;
@@ -113,11 +104,7 @@ class MainPanel extends Component {
     return (
       <div className='main-panel'>
         <Navbar/>
-        {
-          this.state.fetching
-            ? loading
-            : content
-        }
+        { this.state.fetching ? loading : content }
       </div>
     )
   }
