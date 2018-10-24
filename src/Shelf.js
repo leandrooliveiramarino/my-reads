@@ -12,8 +12,6 @@ const Shelf = props => (
           <Book
             key={book.id}
             book={book}
-            thumbnail={book.imageLinks && book.imageLinks.thumbnail}
-            title={book.title}
             status={props.status}
             onChangeBookChoice={props.onChangeBookChoice}
             isBookRemovable={true}

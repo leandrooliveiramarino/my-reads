@@ -18,8 +18,6 @@ class SearchResult extends Component {
                 <Book
                   key={book.id}
                   book={book}
-                  thumbnail={book.imageLinks && book.imageLinks.thumbnail}
-                  title={book.title}
                   status={status}
                   onChangeBookChoice={this.props.onChangeBookChoice}
                   isBookRemovable={this.props.isBookRemovable}
