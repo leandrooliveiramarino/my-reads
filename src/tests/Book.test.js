@@ -5,6 +5,7 @@ import Book from '../Book';
 describe('<Book/>', () => {
   const onChangeBookChoice = jest.fn();
   const props = {
+    id: 1,
     book: {
       title: 'Book Title',
       imageLinks: {
