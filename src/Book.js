@@ -16,14 +16,14 @@ class Book extends Component {
 
   render() {
     return (
-      <div className='book' title={this.props.title}>
+      <div className='book' title={this.props.book.title}>
         <div className='book__image'>
           { /*Na página /search, o compartilhamento de livros não deve aparecer */ }
           {
             this.props.showBookShare &&
               <BookShare
                 show={this.state.showBookShare}
-                bookName={this.props.title}
+                bookName={this.props.book.title}
                 status={this.props.status}
                 toggleBookChoice={this.toggleBookChoice}
               />
@@ -37,14 +37,14 @@ class Book extends Component {
             isBookRemovable={this.props.isBookRemovable}
           />
           <img
-            src={this.props.thumbnail}
-            alt={this.props.title}
+            src={this.props.book.imageLinks && this.props.book.imageLinks.thumbnail}
+            alt={this.props.book.title}
             height='169'
             width='128'
           />
         </div>
         <div className='book__description'>
-          {limitCharacters(this.props.title)}
+          {limitCharacters(this.props.book.title)}
         </div>
       </div>
     );
