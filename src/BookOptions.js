@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BookOptionItem from './BookOptionItem';
 
 class BookOptions extends Component {
 
@@ -27,90 +28,43 @@ class BookOptions extends Component {
         <div className={`book__options ${this.props.show && 'book__options--active'}`}>
           <h6 className='text-center book__label'>Status</h6>
           <form className='book__form'>
-            <div className='book__status-option'>
-              <input
-                className='book__value'
-                type='radio'
-                name='bookStatus'
-                id={`currentlyReading-${this.props.book.id}`}
-                value='currentlyReading'
-                disabled={checkedOption === 'currentlyReading'}
-                checked={checkedOption === 'currentlyReading'}
-                onChange={ev => {
-                  this.props.onChangeBookChoice(ev, this.props.book);
-                  this.handleBookChoice(ev);
-                }}
-              />
-              <label
-                className='book__status'
-                htmlFor={`currentlyReading-${this.props.book.id}`}>
-                  Currently reading
-              </label>
-            </div>
-            <div className='book__status-option'>
-              <input
-                className='book__value'
-                type='radio'
-                name='bookStatus'
-                id={`wantToRead-${this.props.book.id}`}
-                value='wantToRead'
-                disabled={checkedOption === 'wantToRead'}
-                checked={checkedOption === 'wantToRead'}
-                onChange={ev => {
-                  this.props.onChangeBookChoice(ev, this.props.book);
-                  this.handleBookChoice(ev);
-                }}
-              />
-              <label
-                className='book__status'
-                htmlFor={`wantToRead-${this.props.book.id}`}>
-                  Want to read
-              </label>
-            </div>
-            <div className='book__status-option'>
-              <input
-                className='book__value'
-                type='radio'
-                name='bookStatus'
-                id={`read-${this.props.book.id}`}
-                value='read'
-                disabled={checkedOption === 'read'}
-                checked={checkedOption === 'read'}
-                onChange={ev => {
-                  this.props.onChangeBookChoice(ev, this.props.book);
-                  this.handleBookChoice(ev);
-                }}
-              />
-              <label
-                className='book__status'
-                htmlFor={`read-${this.props.book.id}`}>
-                  Read
-              </label>
-            </div>
+            <BookOptionItem
+              book={this.props.book}
+              value='currentlyReading'
+              onChangeBookChoice={this.props.onChangeBookChoice}
+              handleBookChoice={this.handleBookChoice}
+              checkedOption={checkedOption}
+              label='Currently reading'
+            />
+            <BookOptionItem
+              book={this.props.book}
+              value='wantToRead'
+              onChangeBookChoice={this.props.onChangeBookChoice}
+              handleBookChoice={this.handleBookChoice}
+              checkedOption={checkedOption}
+              label='Want to read'
+            />
+            <BookOptionItem
+              book={this.props.book}
+              value='read'
+              onChangeBookChoice={this.props.onChangeBookChoice}
+              handleBookChoice={this.handleBookChoice}
+              checkedOption={checkedOption}
+              label='Read'
+            />
             {
               /*
                 A opção de remover deve estar visível apenas se estivermos em um caminho diferente de /search
                */
               this.props.isBookRemovable && (
-                <div className='book__status-option'>
-                  <input
-                    className='book__value'
-                    type='radio'
-                    name='bookStatus'
-                    id={`remove-${this.props.book.id}`}
-                    value='remove'
-                    checked={checkedOption === 'remove'}
-                    onChange={ev => {
-                      this.props.onChangeBookChoice(ev, this.props.book);
-                      this.handleBookChoice(ev);
-                    }}
-                  />
-                  <label
-                    className='book__status'
-                    htmlFor={`remove-${this.props.book.id}`}>
-                      Remove
-                  </label>
-                </div>
+                <BookOptionItem
+                  book={this.props.book}
+                  value='remove'
+                  onChangeBookChoice={this.props.onChangeBookChoice}
+                  handleBookChoice={this.handleBookChoice}
+                  checkedOption={checkedOption}
+                  label='Remove'
+                />
               )
             }
           </form>
