@@ -6,6 +6,7 @@ describe('<BookOptions/>', () => {
   const onChangeBookChoice = jest.fn();
   const props = {
     book: {
+      id: 1,
       title: 'BookOptions Title',
       imageLinks: {
         thumbnail: 'path/to/thumbnail'
