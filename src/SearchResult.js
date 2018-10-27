@@ -27,7 +27,7 @@ class SearchResult extends Component {
             })
           }
           {
-            this.props.isSearching && !this.props.booksFound.length && <p><b>No books found</b></p>
+            this.props.isSearching && !this.props.booksFound.length && <p className='no-books-found'><b>No books found</b></p>
           }
           {
             !this.props.booksFound.length &&

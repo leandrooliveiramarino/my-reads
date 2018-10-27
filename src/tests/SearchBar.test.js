@@ -8,7 +8,7 @@ describe('<SearchBar/>', () => {
     expect(shallow(<SearchBar/>));
   });
 
-  it('has a input search component', () => {
+  it('has a input search element', () => {
     const wrapper = shallow(<SearchBar/>);
     const inputElement = wrapper.find('#input-search');
     expect(inputElement.length).toBe(1);
