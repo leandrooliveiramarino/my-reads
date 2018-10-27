@@ -64,7 +64,7 @@ describe('<Shelf/>', () => {
     expect(resultElement.text()).toBe('There are no books here');
   });
 
-  it('show not show hr element if it\'s set to false', () => {
+  it('should not show hr element if it\'s set to false', () => {
     const wrapper = shallow(<Shelf {...props} />);
     const resultElement = wrapper.find('hr');
 
