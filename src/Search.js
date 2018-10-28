@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import * as BooksAPI from './BooksAPI';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
+
+  static propTypes = {
+    onChangeBookChoice: PropTypes.func.isRequired,
+    myBooks: PropTypes.array.isRequired,
+    isBookRemovable: PropTypes.bool.isRequired
+  };
 
   state = {
     isSearching: false,
     booksFound: [],
     query: ''
-  }
+  };
 
   handleOnSearch = ev => {
     const query = ev.target.value.trim();
@@ -20,9 +27,8 @@ class Search extends Component {
       this.setState(prevState => ({
         ...this.prevState,
         isSearching: false,
-        booksFound: [],
-        query: ''
-      }))
+        booksFound: []
+      }));
       return;
     }
 
@@ -32,16 +38,15 @@ class Search extends Component {
         booksFound: booksFound.length ? booksFound : [],
         isSearching: true,
         query
-      }))
+      }));
     }), (err) => {
       this.setState(prevState => ({
         ...this.prevState,
         booksFound: [],
-        isSearching: true,
-        query
-      }))
+        isSearching: true
+      }));
     });
-  }
+  };
 
   render() {
     return (
@@ -57,7 +62,7 @@ class Search extends Component {
           isBookRemovable={this.props.isBookRemovable}
         />
       </React.Fragment>
-    )
+    );
   }
 }
 

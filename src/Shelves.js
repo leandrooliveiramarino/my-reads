@@ -1,6 +1,7 @@
 import React from 'react';
 import Shelf from './Shelf';
 import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const shelves = [
   {
@@ -58,5 +59,12 @@ const Shelves = props => (
     </div>
   </div>
 );
+
+Shelves.propTypes = {
+  currentlyReading: PropTypes.array.isRequired,
+  wantToRead: PropTypes.array.isRequired,
+  read: PropTypes.array.isRequired,
+  onChangeBookChoice: PropTypes.func.isRequired,
+};
 
 export default Shelves;

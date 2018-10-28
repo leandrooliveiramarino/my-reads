@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from './Book';
+import PropTypes from 'prop-types';
 
 const Shelf = props => (
   <div className='card card-nav-tabs'>
@@ -24,5 +25,13 @@ const Shelf = props => (
     {props.showHr && <hr/>}
   </div>
 );
+
+Shelf.propTypes = {
+  title: PropTypes.string.isRequired,
+  books: PropTypes.array.isRequired,
+  status: PropTypes.string.isRequired,
+  onChangeBookChoice: PropTypes.func.isRequired,
+  showHr: PropTypes.bool.isRequired
+};
 
 export default Shelf;

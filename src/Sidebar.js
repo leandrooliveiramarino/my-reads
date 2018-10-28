@@ -2,6 +2,7 @@ import React from 'react';
 import Filter from './Filter';
 import DevelopedBy from './DevelopedBy';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Sidebar = props => (
   <div
@@ -24,5 +25,9 @@ const Sidebar = props => (
     </div>
   </div>
 );
+
+Sidebar.propTypes = {
+  location: PropTypes.object.isRequired
+};
 
 export default Sidebar;

@@ -15,6 +15,6 @@ const App = () => (
       render={props => <MainPanel {...props}/>}
     />
   </div>
-)
+);
 
 export default App;

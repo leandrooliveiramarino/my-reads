@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BookShare = props => {
   return (
@@ -30,8 +31,8 @@ const BookShare = props => {
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 const shareOnTwitter = (bookName, status) => {
   const hashtags = [
@@ -52,6 +53,13 @@ const shareOnTwitter = (bookName, status) => {
     '',
     'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0'
   )
-}
+};
+
+BookShare.propTypes = {
+  toggleBookChoice: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  bookName: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired
+};
 
 export default BookShare;

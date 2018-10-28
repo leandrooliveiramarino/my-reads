@@ -14,7 +14,7 @@ const Filter = () => (
           <MenuItem
             title='All'
             to='/'
-            active={match.isExact}
+            active={match}
           />
         )}
       />

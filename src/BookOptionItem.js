@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BookOptionItem = props => {
   return (
@@ -23,6 +24,15 @@ const BookOptionItem = props => {
       </label>
     </div>
   );
-}
+};
+
+BookOptionItem.propTypes = {
+  value: PropTypes.string.isRequired,
+  book: PropTypes.object.isRequired,
+  checkedOption: PropTypes.string,
+  onChangeBookChoice: PropTypes.func.isRequired,
+  handleBookChoice: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired
+};
 
 export default BookOptionItem;

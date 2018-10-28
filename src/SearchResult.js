@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import PropTypes from 'prop-types';
 
 class SearchResult extends Component {
+
+  static propTypes = {
+    booksFound: PropTypes.array.isRequired,
+    myBooks: PropTypes.array.isRequired,
+    onChangeBookChoice: PropTypes.func.isRequired,
+    isBookRemovable: PropTypes.bool.isRequired,
+    isSearching: PropTypes.bool.isRequired
+  };
+
   render() {
     return (
       <div className='row justify-content-md-center search-result'>
@@ -11,7 +21,7 @@ class SearchResult extends Component {
               /*
                 Verificando se o livro já está na prateleira e inserindo devidamente seu status
                */
-              const bookOnTheShelf = this.props.myBooks.find((currentBook) => currentBook.id === book.id);
+              const bookOnTheShelf = this.props.myBooks.find(currentBook => currentBook.id === book.id);
               const status = bookOnTheShelf && bookOnTheShelf.shelf;
 
               return (
@@ -23,7 +33,7 @@ class SearchResult extends Component {
                   isBookRemovable={this.props.isBookRemovable}
                   showBookShare={false}
                 />
-              )
+              );
             })
           }
           {
@@ -40,7 +50,7 @@ class SearchResult extends Component {
           }
         </div>
       </div>
-    )
+    );
   }
 }
 

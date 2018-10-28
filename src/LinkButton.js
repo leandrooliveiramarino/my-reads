@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /*
@@ -16,7 +17,7 @@ const attributes = {
     link: '/search',
     icon: 'nc-simple-add'
   }
-}
+};
 
 const LinkButton = props => {
   /*
@@ -31,7 +32,11 @@ const LinkButton = props => {
       <p className='button'>{attributes[key].label}</p>
       <i className={`nc-icon ${attributes[key].icon}`}></i>
     </Link>
-  )
+  );
+};
+
+LinkButton.propTypes = {
+  location: PropTypes.object.isRequired
 };
 
 export default LinkButton;

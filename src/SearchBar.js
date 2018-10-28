@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const SearchBar = props => {
+class SearchBar extends Component {
+
+  state = {
+    query: ''
+  };
+
+  handleOnChange = e => {
+    const query = e.target.value;
+    this.setState(prevState => ({
+      query
+    }));
+  };
+
+  render() {
     return (
       <div className='row justify-content-md-center'>
         <div className='col-sm-6'>
@@ -15,14 +29,23 @@ const SearchBar = props => {
               id='input-search'
               className='form-control'
               placeholder='Search'
-              value={props.query}
-              onChange={props.handleOnSearch}
+              value={this.state.query}
+              onChange={e => {
+                this.props.handleOnSearch(e);
+                this.handleOnChange(e);
+              }}
               autoFocus
             />
           </div>
         </div>
       </div>
     );
+  }
+
 }
+
+SearchBar.propTypes = {
+  handleOnSearch: PropTypes.func.isRequired
+};
 
 export default SearchBar;

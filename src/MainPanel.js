@@ -14,7 +14,7 @@ class MainPanel extends Component {
     read: [],
     myBooks: [],
     fetching: true
-  }
+  };
 
   async componentDidMount() {
     const myBooks = await this.myBooks();
@@ -23,7 +23,7 @@ class MainPanel extends Component {
       myBooks,
       fetching: false,
       ...setBooksOnShelves(myBooks)
-    }))
+    }));
   }
 
   myBooks = () => {
@@ -39,7 +39,7 @@ class MainPanel extends Component {
     }
 
     return JSON.parse(localStorage.myBooks);
-  }
+  };
 
   onChangeBookChoice = (ev, book) => {
     const choice = ev.target.value;
@@ -56,11 +56,11 @@ class MainPanel extends Component {
       myBooks: treatedBooks,
       ...setBooksOnShelves(treatedBooks)
     }));
-  }
+  };
 
-  removeBookFromShelf = (book) => {
+  removeBookFromShelf = book => {
     return this.state.myBooks.filter(currentBook => currentBook.id !== book.id);
-  }
+  };
 
   changeOrAddBookOnShelf = (choice, book) => {
     const isBookOnAnyShelf = this.state.myBooks.find(currentBook => currentBook.id === book.id);
@@ -73,7 +73,7 @@ class MainPanel extends Component {
       }
       return currentBook;
     });
-  }
+  };
 
   render() {
     const content = <div className='content'>
@@ -104,7 +104,7 @@ class MainPanel extends Component {
         <Navbar/>
         { this.state.fetching ? loading : content }
       </div>
-    )
+    );
   }
 }
 

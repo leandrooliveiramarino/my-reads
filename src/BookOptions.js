@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import BookOptionItem from './BookOptionItem';
+import PropTypes from 'prop-types';
 
 class BookOptions extends Component {
 
+  static propTypes = {
+    status: PropTypes.string,
+    toggleBookChoice: PropTypes.func.isRequired,
+    show: PropTypes.bool.isRequired,
+    book: PropTypes.object.isRequired,
+    isBookRemovable: PropTypes.bool.isRequired,
+    onChangeBookChoice: PropTypes.func.isRequired
+  };
+
   state = {
     checkedOption: ''
-  }
+  };
 
   handleBookChoice = ev => {
     this.setState({
       checkedOption: ev.target.value
-    })
+    });
   }
 
   render() {
@@ -70,7 +80,7 @@ class BookOptions extends Component {
           </form>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 

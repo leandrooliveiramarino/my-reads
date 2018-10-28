@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import BookOptions from './BookOptions';
 import BookShare from './BookShare';
 import { limitCharacters } from './Helper';
+import PropTypes from 'prop-types';
 
 class Book extends Component {
+
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    showBookShare: PropTypes.bool.isRequired,
+    status: PropTypes.string,
+    onChangeBookChoice: PropTypes.func.isRequired,
+    isBookRemovable: PropTypes.bool.isRequired
+  };
 
   constructor() {
     super();
@@ -55,7 +64,7 @@ class Book extends Component {
       ...this.initialState,
       [choice]: !this.state[choice]
     }));
-  }
+  };
 }
 
 export default Book;

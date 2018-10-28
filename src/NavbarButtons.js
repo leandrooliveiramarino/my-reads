@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkButton from './LinkButton';
 import NavbarWrapper from './NavbarWrapper';
+import PropTypes from 'prop-types';
 
 const NavbarButtons = props => (
   <React.Fragment>
@@ -30,5 +31,9 @@ const NavbarButtons = props => (
     </div>
   </React.Fragment>
 );
+
+NavbarButtons.propTypes = {
+  location: PropTypes.object.isRequired
+};
 
 export default NavbarButtons;
