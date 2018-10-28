@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = (props) => {
+const SearchBar = props => {
     return (
       <div className='row justify-content-md-center'>
         <div className='col-sm-6'>
@@ -12,6 +12,7 @@ const SearchBar = (props) => {
             </div>
             <input
               type='text'
+              id='input-search'
               className='form-control'
               placeholder='Search'
               value={props.query}

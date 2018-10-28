@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookOptionItem = (props) => {
+const BookOptionItem = props => {
   return (
     <div className='book__status-option'>
       <input

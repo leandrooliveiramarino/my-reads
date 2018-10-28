@@ -30,7 +30,7 @@ class MainPanel extends Component {
     /*
       Se não existe no localStorage, faz a chamada
      */
-    if(JSON.parse(!localStorage.isInitialized)) {
+    if(!localStorage.getItem('isInitialized')) {
       return BooksAPI.getAll().then((books) => {
         localStorage.isInitialized = true;
         localStorage.myBooks = JSON.stringify(books);
@@ -50,9 +50,7 @@ class MainPanel extends Component {
     } else {
       treatedBooks = this.changeOrAddBookOnShelf(choice, book);
     }
-
     localStorage.myBooks = JSON.stringify(treatedBooks);
-
     this.setState((prevState) => ({
       ...prevState,
       myBooks: treatedBooks,
