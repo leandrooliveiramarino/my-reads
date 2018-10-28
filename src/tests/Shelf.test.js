@@ -1,40 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Shelf from '../Shelf';
-
-const books = [
-  {
-    "title":"The Linux Command Line",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-    },
-    "id":"nggnmAEACAAJ",
-    "shelf":"currentlyReading"
-  },
-  {
-    "title":"Learning Web Development with React and Bootstrap",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-       "thumbnail":"http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-    },
-    "id":"sJf1vQAACAAJ",
-    "shelf":"read"
-  },
-  {
-    "title":"The Cuckoo's Calling",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-       "thumbnail":"http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "id":"evuwdDLfAyYC",
-    "shelf":"wantToRead"
-  }
-];
+import { booksFound } from './mockData';
 
 describe('<Shelf/>', () => {
 
   const props = {
-    books: books,
+    books: booksFound(),
     onChangeBookChoice: jest.fn(),
     status: 'read',
     title: 'Read',

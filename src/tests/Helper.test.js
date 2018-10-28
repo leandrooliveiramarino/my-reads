@@ -1,34 +1,7 @@
 import { setBooksOnShelves, limitCharacters } from '../Helper.js';
+import { myBooks } from './mockData';
 
 describe('setBooksOnShelves', () => {
-
-  const book1 = {
-    id: 1,
-    title: 'Book Title',
-    imageLinks: {
-      thumbnail: 'path/to/thumbnail'
-    },
-    shelf: 'currentlyReading'
-  }
-
-  const book2 = {
-    id: 2,
-    title: 'Book Title',
-    imageLinks: {
-      thumbnail: 'path/to/thumbnail'
-    },
-    shelf: 'wantToRead'
-  }
-
-  const book3 = {
-    id: 3,
-    title: 'Book Title',
-    imageLinks: {
-      thumbnail: 'path/to/thumbnail'
-    },
-    shelf: 'read'
-  }
-
   it('should return an object with three empty arrays in each attributes', () => {
     const bookCombination = setBooksOnShelves([]);
 
@@ -40,7 +13,7 @@ describe('setBooksOnShelves', () => {
   });
 
   it('should have on book in each attribute', () => {
-    const bookCombination = setBooksOnShelves([book1, book2, book3]);
+    const bookCombination = setBooksOnShelves([myBooks()[0], myBooks()[1], myBooks()[2]]);
 
     expect(bookCombination.currentlyReading.length).toBe(1);
     expect(bookCombination.wantToRead.length).toBe(1);

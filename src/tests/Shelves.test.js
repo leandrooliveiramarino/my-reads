@@ -3,40 +3,12 @@ import { shallow, mount } from 'enzyme';
 import Shelves from '../Shelves';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-
-const books = {
-  currentlyReading: [{
-    "title":"The Linux Command Line",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-    },
-    "id":"nggnmAEACAAJ",
-    "shelf":"currentlyReading"
-  }],
-  read: [{
-    "title":"Learning Web Development with React and Bootstrap",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-       "thumbnail":"http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-    },
-    "id":"sJf1vQAACAAJ",
-    "shelf":"read"
-  }],
-  wantToRead: [{
-    "title":"The Cuckoo's Calling",
-    "imageLinks":{
-       "smallThumbnail":"http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-       "thumbnail":"http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    },
-    "id":"evuwdDLfAyYC",
-    "shelf":"wantToRead"
-  }]
-};
+import { shelfBooks } from './mockData';
 
 describe('<Shelves/>', () => {
 
   const props = {
-    ...books,
+    ...shelfBooks(),
     onChangeBookChoice: jest.fn()
   }
 
