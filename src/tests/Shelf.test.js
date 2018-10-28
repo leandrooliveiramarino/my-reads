@@ -18,7 +18,7 @@ const books = [
        "thumbnail":"http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
     },
     "id":"sJf1vQAACAAJ",
-    "shelf":"red"
+    "shelf":"read"
   },
   {
     "title":"The Cuckoo's Calling",
