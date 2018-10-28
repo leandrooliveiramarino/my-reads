@@ -7,8 +7,10 @@ jest.mock('../BooksAPI');
 describe('<Search/>', () => {
 
   const props = {
-    myBooks: []
-  }
+    myBooks: [],
+    onChangeBookChoice: jest.fn(),
+    isBookRemovable: false
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<Search {...props}/>));

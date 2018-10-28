@@ -10,7 +10,7 @@ describe('<Shelves/>', () => {
   const props = {
     ...shelfBooks(),
     onChangeBookChoice: jest.fn()
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<Shelves {...props}/>));

@@ -3,11 +3,15 @@ import { shallow } from 'enzyme';
 import MenuItem from '../MenuItem';
 
 describe('<MenuItem/>', () => {
+
   const props = {
     to: '/',
     title: 'Menu title',
-    active: false
-  }
+    active: {
+      isExact: false,
+      pathname: '/'
+    }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<MenuItem {...props}/>));

@@ -8,7 +8,7 @@ describe('<Sidebar/>', () => {
     location: {
       pathname: '/search'
     }
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<Sidebar {...props}/>));
@@ -27,7 +27,7 @@ describe('<Sidebar/>', () => {
       location: {
         pathname: '/'
       }
-    }
+    };
     const wrapper = shallow(<Sidebar {...newProps}/>);
     const filterElement = wrapper.find('Filter');
 

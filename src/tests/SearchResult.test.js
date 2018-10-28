@@ -11,7 +11,7 @@ describe('<SearchResult/>', () => {
     isBookRemovable: true,
     myBooks: [booksFound()[0], booksFound()[1]],
     isSearching: false
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<SearchResult {...props}/>));

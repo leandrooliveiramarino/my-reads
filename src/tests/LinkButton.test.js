@@ -3,11 +3,12 @@ import { shallow } from 'enzyme';
 import LinkButton from '../LinkButton';
 
 describe('<LinkButton/>', () => {
+
   const props = {
     location: {
       pathname: '/search'
     }
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<LinkButton {...props}/>));

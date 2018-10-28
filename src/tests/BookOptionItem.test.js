@@ -18,7 +18,7 @@ describe('<BookOptionItem/>', () => {
     onChangeBookChoice: onChangeBookChoice,
     handleBookChoice: handleBookChoice,
     value: 'read'
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<BookOptionItem {...props}/>));

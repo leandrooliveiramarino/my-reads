@@ -4,12 +4,16 @@ import SearchBar from '../SearchBar';
 
 describe('<SearchBar/>', () => {
 
+  const props = {
+    handleOnSearch: jest.fn()
+  };
+
   it('shallow renders correctly', () => {
-    expect(shallow(<SearchBar/>));
+    expect(shallow(<SearchBar {...props} />));
   });
 
   it('has a input search element', () => {
-    const wrapper = shallow(<SearchBar/>);
+    const wrapper = shallow(<SearchBar {...props} />);
     const inputElement = wrapper.find('#input-search');
     expect(inputElement.length).toBe(1);
   });

@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import Book from '../Book';
 
 describe('<Book/>', () => {
-  const onChangeBookChoice = jest.fn();
+
   const props = {
     id: 1,
     book: {
@@ -13,10 +13,10 @@ describe('<Book/>', () => {
       }
     },
     status: 'read',
-    onChangeBookChoice: onChangeBookChoice,
+    onChangeBookChoice: jest.fn(),
     isBookRemovable: true,
     showBookShare: true
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<Book {...props}/>));
@@ -63,7 +63,7 @@ describe('<Book/>', () => {
 
     const showBookOptions = wrapper.state().showBookOptions;
     const showBookShare = wrapper.state().showBookShare;
-    expect(showBookOptions).not.toBe(showBookShare)
+    expect(showBookOptions).not.toBe(showBookShare);
   });
 
   it('should not render BookShare element if showBookShare is set to false', () => {

@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import BookOptions from '../BookOptions';
 
 describe('<BookOptions/>', () => {
-  const onChangeBookChoice = jest.fn();
+
   const props = {
     book: {
       id: 1,
@@ -14,8 +14,10 @@ describe('<BookOptions/>', () => {
     },
     status: 'read',
     show: true,
-    onChangeBookChoice: onChangeBookChoice
-  }
+    onChangeBookChoice: jest.fn(),
+    isBookRemovable: false,
+    toggleBookChoice: jest.fn()
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<BookOptions {...props}/>));

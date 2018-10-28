@@ -9,7 +9,7 @@ describe('<BookShare/>', () => {
     status: 'read',
     show: true,
     toggleBookChoice: toggleBookChoice
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<BookShare {...props}/>));

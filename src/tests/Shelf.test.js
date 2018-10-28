@@ -11,7 +11,7 @@ describe('<Shelf/>', () => {
     status: 'read',
     title: 'Read',
     showHr: false
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<Shelf {...props}/>));

@@ -21,7 +21,7 @@ describe('<MainPanel/>', () => {
     read: [],
     myBooks: [],
     fetching: true
-  }
+  };
 
   it('shallow renders correctly', () => {
     expect(shallow(<MainPanel />));
