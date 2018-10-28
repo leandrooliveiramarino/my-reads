@@ -52,7 +52,6 @@ class MainPanel extends Component {
     }
 
     localStorage.myBooks = JSON.stringify(treatedBooks);
-
     this.setState((prevState) => ({
       ...prevState,
       myBooks: treatedBooks,
