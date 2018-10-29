@@ -49,7 +49,7 @@ const Shelves = props => (
             <Shelf
               title={shelf.title}
               status={shelf.status}
-              showHr={shelf.showHr}
+              showHr={false}
               books={props[shelf.status]}
               onChangeBookChoice={props.onChangeBookChoice}
             />

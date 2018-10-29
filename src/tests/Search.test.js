@@ -39,7 +39,7 @@ describe('<Search/>', () => {
 
   it('should have books in book state after searching for a valid book name', done => {
     const wrapper = mount(<Search {...props}/>);
-    const inputSearch = wrapper.find('#input-search');
+    const inputSearch = wrapper.find('#input-search').first();
     const event = {target: { value: 'The' }};
 
     inputSearch.simulate('change', event);
@@ -48,12 +48,12 @@ describe('<Search/>', () => {
       const booksFoundState = wrapper.state().booksFound;
       expect(booksFoundState.length).toBeGreaterThan(0);
       done();
-    });
+    }, 400); /* Aguardando o Debounce de 300 */
   });
 
   it('should have no books in book state after searching for a invalid book name', done => {
     const wrapper = mount(<Search {...props}/>);
-    const inputSearch = wrapper.find('#input-search');
+    const inputSearch = wrapper.find('#input-search').first();
     const event = {target: { value: 'abc' }};
 
     inputSearch.simulate('change', event);
@@ -62,12 +62,12 @@ describe('<Search/>', () => {
       const booksFoundState = wrapper.state().booksFound;
       expect(booksFoundState.length).toBe(0);
       done();
-    });
+    }, 400); /* Aguardando o Debounce de 300 */
   });
 
   it('should have no books in book state after searching for an empty string book name', done => {
     const wrapper = mount(<Search {...props}/>);
-    const inputSearch = wrapper.find('#input-search');
+    const inputSearch = wrapper.find('#input-search').first();
     const event = {target: { value: '' }};
 
     inputSearch.simulate('change', event);
@@ -76,12 +76,12 @@ describe('<Search/>', () => {
       const booksFoundState = wrapper.state().booksFound;
       expect(booksFoundState.length).toBe(0);
       done();
-    });
+    }, 400); /* Aguardando o Debounce de 300 */
   });
 
   it('should have isSearching state as true while searching for a book', done => {
     const wrapper = mount(<Search {...props}/>);
-    const inputSearch = wrapper.find('#input-search');
+    const inputSearch = wrapper.find('#input-search').first();
     const event = {target: { value: 'abc' }};
 
     inputSearch.simulate('change', event);
@@ -90,7 +90,7 @@ describe('<Search/>', () => {
       const isSearchingState = wrapper.state().isSearching;
       expect(isSearchingState).toBeTruthy();
       done();
-    });
+    }, 400); /* Aguardando o Debounce de 300 */
   });
 
   it('has a SearchBar component', () => {
