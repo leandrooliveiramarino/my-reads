@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './utils/BooksAPI';
 import PropTypes from 'prop-types';
 
 class Search extends Component {

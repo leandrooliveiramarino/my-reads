@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Shelf from '../Shelf';
-import { booksFound } from './mockData';
+import { booksFound } from './utils/mockData';
 
 describe('<Shelf/>', () => {
 

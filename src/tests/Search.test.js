@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Search from '../Search';
 
-jest.mock('../BooksAPI');
+jest.mock('../utils/BooksAPI');
 
 describe('<Search/>', () => {
 

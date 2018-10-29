@@ -4,9 +4,9 @@ import MainPanel from '../MainPanel';
 import Search from '../Search';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-import { shelfBooks, booksFound, myBooks } from './mockData';
+import { shelfBooks, booksFound, myBooks } from './utils/mockData';
 
-jest.mock('../BooksAPI');
+jest.mock('../utils/BooksAPI');
 
 beforeEach(() => {
   localStorage.isInitialized = false;

@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import Shelves from '../Shelves';
 import { MemoryRouter } from 'react-router';
 import { Route } from 'react-router-dom';
-import { shelfBooks } from './mockData';
+import { shelfBooks } from './utils/mockData';
 
 describe('<Shelves/>', () => {
 

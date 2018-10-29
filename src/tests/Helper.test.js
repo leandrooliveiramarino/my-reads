@@ -1,5 +1,5 @@
 import { setBooksOnShelves, limitCharacters } from '../Helper.js';
-import { myBooks } from './mockData';
+import { myBooks } from './utils/mockData';
 
 describe('setBooksOnShelves', () => {
   it('should return an object with three empty arrays in each attributes', () => {

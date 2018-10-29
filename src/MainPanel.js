@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { Route } from 'react-router-dom';
 import Shelves from './Shelves';
 import Search from './Search';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './utils/BooksAPI';
 import { setBooksOnShelves } from './Helper';
 
 class MainPanel extends Component {
