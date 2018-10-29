@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { DebounceInput } from 'react-debounce-input';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
@@ -24,17 +25,18 @@ class SearchBar extends Component {
                 <i className='nc-icon nc-zoom-split'></i>
               </div>
             </div>
-            <input
-              type='text'
+            <DebounceInput
               id='input-search'
               className='form-control'
               placeholder='Search'
               value={this.state.query}
+              minLength={1}
+              debounceTimeout={300}
+              autoFocus
               onChange={e => {
                 this.props.handleOnSearch(e);
                 this.handleOnChange(e);
               }}
-              autoFocus
             />
           </div>
         </div>
