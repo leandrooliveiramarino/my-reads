@@ -28,6 +28,14 @@ npm run build
 ```
 Then copy the content inside build directory to a CDN you like.
 
-## Authors
+### Resources
+* [Create React App](https://github.com/facebook/create-react-app)
+* [Paper Dashboard 2](https://github.com/creativetimofficial/paper-dashboard)
+* [Udacity's HTML Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/index.html)
+* [Udacity's CSS Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/css.html)
+* [Udacity's JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
+* [Udacity's Git Style Guide](https://udacity.github.io/git-styleguide/)
+
+## Author
 
 * **Leandro Oliveira Marino**
