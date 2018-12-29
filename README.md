@@ -2,7 +2,7 @@
 
 ## [**[ Check the live project ]**](http://my-reads.leandromarino.me)
 
-This is the first course project from Udacity. The goal is to create a React app using create-react-app, that search and organizes books in shelves. Beyound the initial proposal scope, new features have been developed like sharing books on Twitter and filtering books per shelf.
+This is the first course project from Udacity. The goal is to create a React app using create-react-app, that search and organizes books in shelves. Beyond the initial proposal scope, new features have been developed like sharing books on Twitter and filtering books per shelf.
 
 ## Instructions
 
